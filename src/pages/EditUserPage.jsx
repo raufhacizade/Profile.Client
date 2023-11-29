@@ -8,16 +8,13 @@ import Loading from '../components/Loading';
 function EditUserPage() {
   const { id } = useParams();
   const [user, setUser] = useState();
-  let test;
   const navigate = useNavigate();
 
   const loadData = () => {
     axios
       .get(API_URL_USER + id)
       .then((res) => {
-        console.log(res)
         setUser(res.data);
-        test = res.data;
       })
       .catch((err) => console.log(err));
   };
